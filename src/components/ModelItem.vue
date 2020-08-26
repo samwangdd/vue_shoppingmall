@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { isPhone } from "../utils/regexp";
 export default {
   name: "ModelItem",
   model: {
@@ -18,9 +19,15 @@ export default {
   },
   methods: {
     handlePhoneChange(e) {
+      const val = e.target.value;
+      if (!val) {
+        // console.log("手机号不能为空");
+      } else if (!isPhone.test(val)) {
+        // console.log("请输入正确的手机号");
+      }
       this.$emit("change", {
         ...this.phoneInfo,
-        phone: e.target.value,
+        phone: val,
       });
     },
 

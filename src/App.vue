@@ -16,11 +16,7 @@
       :zip-code="zipCode"
       @update:zipCode="val => (zipCode = val)"
     />
-    phoneInfo: {{phoneInfo}}
-    <br />
-    zipCode: {{zipCode}}
-    <br />
-    {{fullName}}
+    <WatchItem />
   </div>
 </template>
 
@@ -32,6 +28,7 @@ import debounce from "lodash/debounce";
 
 import TodoItem from "./components/TodoItem";
 import ModelItem from "./components/ModelItem";
+import WatchItem from "./components/WatchItem";
 
 export default {
   name: "app",
@@ -40,6 +37,7 @@ export default {
     // event,
     TodoItem,
     ModelItem,
+    WatchItem,
   },
   data: () => ({
     phoneInfo: {
@@ -87,9 +85,9 @@ export default {
   margin-top: 60px;
 }
 .active {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 .import-info {
-  color: #ff1;
+  /* color: #ff1; */
 }
 </style>
