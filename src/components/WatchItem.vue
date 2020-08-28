@@ -21,14 +21,14 @@ export default {
     h: [],
   }),
   watch: {
-    a: function (val, oldVal) {
-      this.b.c += 1;
-      console.log("new: %s, old: %s >> ", val, oldVal);
-    },
-    "b.c": function (val, oldVal) {
-      this.e.f.g += 1;
-      console.log("new: %s, old: %s >> ", val, oldVal);
-    },
+    // a: function (val, oldVal) {
+    //   this.b.c += 1;
+    //   console.log("new: %s, old: %s >> ", val, oldVal);
+    // },
+    // "b.c": function (val, oldVal) {
+    //   this.e.f.g += 1;
+    //   console.log("new: %s, old: %s >> ", val, oldVal);
+    // },
     e: {
       handler: function () {
         this.h.push("😄");
