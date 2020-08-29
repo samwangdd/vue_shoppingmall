@@ -20,7 +20,3 @@ http.createServer((req, res) => {
   res.write('Hello, nodejs!'); // 设置响应内容
   res.end(); // 结束响应
 }).listen(8001)
-
-useEffect(()=>{
-  console.log(ref.current); //  只会打印一次，ref.current变了也没用
-},[ref.current])

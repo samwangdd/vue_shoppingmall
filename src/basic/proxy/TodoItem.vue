@@ -1,9 +1,9 @@
 <template>
   <ul>
-    <li v-for="item in list" :key="item.title">
+    <!-- <li v-for="item in list" :key="item.title">
       {{item.title}}
       <button @click.stop="handleClick" v-show="item.del">删除</button>
-    </li>
+    </li> -->
     <slot name="suf" :list="list" />
   </ul>
 </template>

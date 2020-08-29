@@ -2,7 +2,6 @@
   <div id="app" :class="{active: isActive }">
     <img alt="Vue logo" src="./assets/logo.png" />
     <!-- <HelloWorld msg='<span style="color: red">hhh</span>'/> -->
-    <!-- <event /> -->
     <!-- <TodoItem>
       <span slot="suf">suf-icon</span>
       <template #suf="{list}">
@@ -18,8 +17,11 @@
     />-->
     <!-- <WatchItem /> -->
     <!-- <Clock /> -->
-    <VNodes :vnodes="getJSXSpan()" />
-    <InjectItem></InjectItem>
+    <!-- <VNodes :vnodes="getJSXSpan()" /> -->
+    <!-- <InjectItem /> -->
+    <!-- <Proxy /> -->
+    <!-- <FormDemo /> -->
+    <InstructionDemo></InstructionDemo>
   </div>
 </template>
 
@@ -33,7 +35,10 @@ import debounce from "lodash/debounce";
 // import ModelItem from "./components/ModelItem";
 // import WatchItem from "./components/WatchItem";
 // import Clock from "./components/Clock";
-import InjectItem from "./components/InjectItem";
+// import InjectItem from "./components/InjectItem";
+// import Proxy from "./basic/proxy/index";
+// import FormDemo from "./basic/formDemo/index";
+import InstructionDemo from "./basic/instructionDemo/index";
 
 export default {
   name: "app",
@@ -41,19 +46,22 @@ export default {
     // HelloWorld,
     // event,
     // TodoItem,
+    // FormDemo,
     // ModelItem,
     // WatchItem,
     // Clock,
-    InjectItem,
-    VNodes: {
-      functional: true,
-      render: (h, ctx) => {
-        console.log("h :>> ", h);
-        console.log("ctx :>> ", ctx);
+    // InjectItem,
+    // Proxy,
+    // VNodes: {
+    //   functional: true,
+    //   render: (h, ctx) => {
+    //     console.log("h :>> ", h);
+    //     console.log("ctx :>> ", ctx);
 
-        return ctx.props.vnodes;
-      },
-    },
+    //     return ctx.props.vnodes;
+    //   },
+    // },
+    InstructionDemo,
   },
   data: () => ({
     phoneInfo: {
@@ -92,11 +100,11 @@ export default {
       return <span>message: {this.fullName}</span>;
     },
   },
-  provide() {
-    return {
-      theme: this,
-    };
-  },
+  // provide() {
+  //   return {
+  //     theme: this,
+  //   };
+  // },
   // VUE 生命周期
   created: function () {
     this.debouncedGetFullName = debounce(this.getFullName, 2000);

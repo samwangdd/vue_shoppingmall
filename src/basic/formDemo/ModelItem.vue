@@ -6,6 +6,9 @@
 </template>
 
 <script>
+/**
+ * v-model 数据双向绑定
+ */
 import { isPhone } from "../utils/regexp";
 export default {
   name: "ModelItem",

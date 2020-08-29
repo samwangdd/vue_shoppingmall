@@ -7,6 +7,9 @@
 </template>
 
 <script>
+/**
+ * 指令生命周期练习
+ */
 import moment from "moment";
 
 export default {
