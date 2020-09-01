@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>message: {{ msg }}</h1>
     <div v-html="msg1" v-bind:id="id">
       {{msg1}}
     </div>

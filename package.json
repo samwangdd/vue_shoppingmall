@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "start": "node_modules/.bin/nodemon app.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "lodash": "^4.17.20",
+    "moment": "^2.27.0",
     "vue": "^2.6.6"
   },
   "devDependencies": {
@@ -38,6 +41,14 @@
     "plugins": {
       "autoprefixer": {}
     }
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "node_modules/*"
+    ],
+    "delay": "2500"
   },
   "browserslist": [
     "> 1%",
