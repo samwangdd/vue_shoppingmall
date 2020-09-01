@@ -21,7 +21,8 @@
     <!-- <InjectItem /> -->
     <!-- <Proxy /> -->
     <!-- <FormDemo /> -->
-    <InstructionDemo></InstructionDemo>
+    <InstructionDemo />
+    <ProvideInject />
   </div>
 </template>
 
@@ -39,6 +40,7 @@ import debounce from "lodash/debounce";
 // import Proxy from "./basic/proxy/index";
 // import FormDemo from "./basic/formDemo/index";
 import InstructionDemo from "./basic/instructionDemo/index";
+import ProvideInject from "./basic/provideInject";
 
 export default {
   name: "app",
@@ -62,6 +64,7 @@ export default {
     //   },
     // },
     InstructionDemo,
+    ProvideInject
   },
   data: () => ({
     phoneInfo: {
