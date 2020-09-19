@@ -12,7 +12,8 @@
     "core-js": "^2.6.5",
     "lodash": "^4.17.20",
     "moment": "^2.27.0",
-    "vue": "^2.6.6"
+    "vue": "^2.6.6",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
@@ -22,20 +23,6 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.5.21"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
   },
   "postcss": {
     "plugins": {
