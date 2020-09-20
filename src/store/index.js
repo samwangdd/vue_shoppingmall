@@ -1,15 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import cart from './modules/cart';
+import products from './modules/products';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
   state: {
-    count: 0,
-  },
-  mutations: {
-    increment(state) {
-      state.count++;
+    userInfo: {
+      email: 'SamWang@qq.com',
     },
   },
+  modules: {
+    cart,
+    products,
+  },
 });
+
+export default store;

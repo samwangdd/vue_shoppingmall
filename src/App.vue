@@ -1,26 +1,28 @@
 <template>
   <div id="app" :class="{active: isActive }">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <!-- <img alt="Vue logo" src="./assets/logo.png" />
     <InstructionDemo />
     <ProvideInject />
-    {{count}}
+    {{count}}-->
     <!-- {{$store.getters.doubleCount}} -->
-    <br />
-    <button @click="add">add 1</button>
-    <button @click="asyncAdd">async add</button>
+    <!-- <button @click="add">add 1</button>
+    <button @click="asyncAdd">async add</button>-->
+    <ShoppingMall />
   </div>
 </template>
 
 <script>
 import debounce from 'lodash/debounce';
-import InstructionDemo from './basic/instructionDemo/index';
-import ProvideInject from './basic/provideInject';
+import ShoppingMall from '@/pages/ShoppingMall';
+// import InstructionDemo from './basic/instructionDemo/index';
+// import ProvideInject from './basic/provideInject';
 
 export default {
   name: 'app',
   components: {
-    InstructionDemo,
-    ProvideInject,
+    // InstructionDemo,
+    // ProvideInject,
+    ShoppingMall,
   },
   data: () => ({
     phoneInfo: {
@@ -50,7 +52,7 @@ export default {
   methods: {
     getFullName: function () {
       // console.log("this.firstName :>> ", this.firstName);
-      return `${this.firstName} ${this.lastName}`;
+      return `${this.firstßName} ${this.lastName}`;
     },
     changeColor: function (color) {
       return (this.color = color);
