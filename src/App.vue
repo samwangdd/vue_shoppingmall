@@ -55,7 +55,7 @@ export default {
   methods: {
     getFullName: function () {
       // console.log("this.firstName :>> ", this.firstName);
-      return `${this.firstßName} ${this.lastName}`;
+      return `${this.firstName} ${this.lastName}`;
     },
     changeColor: function (color) {
       return (this.color = color);
