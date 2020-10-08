@@ -4579,6 +4579,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+mathsass@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.npm.taobao.org/mathsass/download/mathsass-0.11.0.tgz#5ef6df18e37061845c0c9eaedef5ab72025885c1"
+  integrity sha1-XvbfGONwYYRcDJ6u3vWrcgJYhcE=
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "http://registry.npm.taobao.org/md5.js/download/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
