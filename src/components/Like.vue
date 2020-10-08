@@ -1,7 +1,7 @@
 <template>
   <div class="heart-wrapper">
     <input id="toggle-heart" type="checkbox" />
-    <label for="toggle-heart">❤</label>
+    <label for="toggle-heart" arial-label="like">❤</label>
   </div>
 </template>
 
@@ -10,6 +10,7 @@ export default {};
 </script>
 
 <style scoped lang="scss">
+@import 'node_modules/mathsass/dist/math'; // sass 不支持三角函数
 $bubble-d: 4.5rem;
 $bubble-r: 0.5 * $bubble-d;
 $particle-d: 0.375rem;
@@ -63,36 +64,50 @@ $particle-r: 0.5 * $particle-d;
   }
 }
 
-$shadow-list: (); // init shadow list
-$n-groups: 7; // number of groups
-$group-base-angle: 360deg / $n-groups;
-$group-distr-r: $bubble-r;
-$n-particles: 2;
-$particle-base-angle: 360deg / $n-particles;
-$particle-off-angle: 60deg;
+@mixin particles($k) {
+  $shadow-list: ();
+  $n-groups: 7; // 7组颗粒
+  $group-base-angle: 360deg / $n-groups;
+  $group-distr-r: (1 + $k * 0.25) * $bubble-r;
+  $n-particles: 2; // 每组2个
+  $particle-base-angle: 360deg / $n-particles;
+  $particle-off-angle: 60deg;
+  $spread-r: -$k * 1.1 * $particle-r;
 
-@for $i from 0 to $n-groups {
-  $group-curr-angle: $i * $group-base-angle - 90deg;
-  $xg: $group-distr-r * cos($group-curr-angle);
-  $yg: $group-distr-r * sin($group-curr-angle);
+  @for $i from 0 to $n-groups {
+    $group-curr-angle: $i * $group-base-angle - 90deg;
+    $xg: $group-distr-r * cos($group-curr-angle);
+    $yg: $group-distr-r * sin($group-curr-angle);
 
-  @for $j from 0 to $n-particles {
-    $particle-curr-angle: $group-curr-angle + $particle-off-angle + $j * $particle-base-angle;
-    $xs: $xg + $particle-d * cos($particle-curr-angle);
-    $ys: $yg + $particle-d * sin($particle-curr-angle);
+    @for $j from 0 to $n-particles {
+      $particle-curr-angle: $group-curr-angle + $particle-off-angle + $j * $particle-base-angle;
+      $xs: $xg + $particle-d * cos($particle-curr-angle);
+      $ys: $yg + $particle-d * sin($particle-curr-angle);
 
-    $shadow-list: $shadow-list, $xs $ys;
+      $shadow-list: $shadow-list, $xs $ys 0 $spread-r hsl(($i + $j) * $group-base-angle, 100%, 75%);
+    }
+  }
+
+  box-shadow: $shadow-list;
+}
+
+@keyframes particles {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    @include particles(0);
   }
 }
 
 // 彩色颗粒
-$particle-d: 0.375rem;
-$particle-r: 0.5 * $particle-d;
-
 [for='toggle-heart']:after {
   margin: -$particle-r;
   width: $particle-d;
   height: $particle-d;
+  @include particles(1);
 }
 
 @keyframes heart {
@@ -120,6 +135,10 @@ $particle-r: 0.5 * $particle-d;
   &::after {
     animation-name: particles;
   }
+}
+
+[id='toggle-heart']:focus + label {
+  text-shadow: 0 0 3px #fff, 0 1px 1px #fff, 0 -1px 1px #fff, 1px 0 1px #fff, -1px 0 1px #fff;
 }
 
 .heart-wrapper {
