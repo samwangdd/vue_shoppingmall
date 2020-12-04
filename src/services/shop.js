@@ -1,11 +1,5 @@
-/*
- * @Author: your name
- * @Date: 2020-11-29 15:35:14
- * @LastEditTime: 2020-11-29 23:04:04
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: /vue_shoppingmall/src/services/shop.js
- */
+import { reject } from 'lodash';
+
 /**
  * Mocking client-server processing
  */
