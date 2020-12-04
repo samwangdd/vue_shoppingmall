@@ -4,7 +4,7 @@
     <br />
     <!-- <Spike :startTime="startTime" :endTime="endTime" /> -->
     <!-- <ClockDirective /> -->
-    <CountDown :startTime="startTime" :endTime="endTime" />
+    <CountDown :start-time="startTime" :end-time="endTime" />
   </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
     CountDown,
   },
   data: () => ({
-    startTime: moment('2020-8-29 14:00:00'),
-    endTime: moment('2020-8-29 17:00:00'),
+    startTime: moment('2020-12-5 02:58:00'),
+    endTime: moment('2020-12-5 03:58:00'),
   }),
   methods: {
     reStart() {

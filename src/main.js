@@ -6,6 +6,7 @@ import App from './App.vue';
 
 // import 'ant-design-vue/dist/antd.less';
 // import 'ant-design-vue/lib/button/style';
+Vue.config.productionTip = false;
 
 // Vue.use(Antd);
 

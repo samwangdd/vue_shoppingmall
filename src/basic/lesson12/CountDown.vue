@@ -6,7 +6,6 @@
 -->
 <template>
   <div>
-    111
     <div>{{infoMsg}}</div>
     <Button @click="handleClick" :disabled="disabled">加入购物车</Button>
   </div>
@@ -14,12 +13,23 @@
 
 <script>
 import { Button } from 'ant-design-vue';
+import moment from 'moment';
 
 export default {
   name: 'CountDown',
   props: {
-    startTime: null,
-    endTime: null,
+    startTime: {
+      required: true,
+      validator: function (val) {
+        return moment.isMoment(val);
+      },
+    },
+    endTime: {
+      required: true,
+      validator: function (val) {
+        return moment.isMoment(val);
+      },
+    },
     handleSuccess: function () {
       console.log('添加成功');
     },
@@ -34,11 +44,18 @@ export default {
   },
   conponents: { Button },
   data() {
-    return { currentTime: new Date().getTime(), buttenText: '', infoMsg: '' };
+    return {
+      currentTime: moment(new Date()),
+      buttenText: '',
+      infoMsg: '',
+      isStart: false,
+      isEnd: false,
+      isDown: false,
+    };
   },
   computed: {
     disabled() {
-      return !(this.status && this.limit !== 0 && this.getStatus === 1);
+      return !(this.isStart && !this.isEnd && this.isDown);
     },
     getStatus() {
       const cur = this.currentTime;
@@ -51,9 +68,9 @@ export default {
     getInfoMsg(status) {
       switch (status) {
         case 0:
-          return (this.infoMsg = `距开始还有：${this.getTimeLeft}`);
+          return (this.infoMsg = `距开始还有：${this.getTimeLeft()}`);
         case 1:
-          return (this.infoMsg = `活动开始，距结束还有：${this.getTimeLeft}`);
+          return (this.infoMsg = `活动开始，距结束还有：${this.getTimeLeft()}`);
         case 2:
           return (this.infoMsg = '活动已结束！');
         default:
