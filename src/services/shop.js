@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import { reject } from 'lodash';
+
+>>>>>>> 9a2b13b6a11ee794bdd084080ccb4d88cf5b46f1
 /**
  * Mocking client-server processing
  */
