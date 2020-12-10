@@ -1,5 +1,5 @@
 <template>
-  <div :startTime="startTime">
+  <div>
     <button :disabled="disabled" @click="handleClick">{{done ? 'you had get it!':'I wanne it!'}}</button>
     <p>{{tip}}</p>
   </div>
@@ -9,10 +9,10 @@
 /**
  * 倒计时秒杀组件
  */
-import moment from "moment";
+import moment from 'moment';
 
 export default {
-  name: "Countdown",
+  name: 'Countdown',
   props: {
     startTime: {
       required: true,
@@ -32,7 +32,7 @@ export default {
     end: false,
     done: false,
     timeGap: 0,
-    tip: "",
+    tip: '',
   }),
   computed: {
     disabled() {
@@ -86,17 +86,17 @@ export default {
       const diffEnd = this.endTime.diff(now);
       if (diffStart <= 0) {
         this.start = true;
-        this.tip = "秒杀已开始";
+        this.tip = '秒杀已开始';
       } else {
         this.tip = `距离秒杀开始还有 ${Math.ceil(diffStart / 1000)} 秒`;
       }
       if (diffEnd <= 0) {
         this.end = true;
-        this.tip = "秒杀活动已经结束";
+        this.tip = '秒杀活动已经结束';
       }
     },
     handleClick() {
-      alert("订单提交成功");
+      alert('订单提交成功');
       this.done = true;
     },
   },

@@ -2,12 +2,8 @@
   <div id="app" :class="{active: isActive }">
     <router-view />
     <!-- <InstructionDemo /> -->
-    <!-- <img alt="Vue logo" src="./assets/logo.png" />
-    <ProvideInject />
-    {{count}}-->
     <!-- {{$store.getters.doubleCount}} -->
     <!-- <button @click="add">add 1</button>
-    <button @click="asyncAdd">async add</button>-->
     <!-- <Button>click me</Button>
     <ShoppingMall />-->
   </div>
