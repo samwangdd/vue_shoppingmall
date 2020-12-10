@@ -1,31 +1,32 @@
 <template>
   <div id="app" :class="{active: isActive }">
-    <InstructionDemo />
+    <router-view />
+    <!-- <InstructionDemo /> -->
     <!-- <img alt="Vue logo" src="./assets/logo.png" />
     <ProvideInject />
     {{count}}-->
     <!-- {{$store.getters.doubleCount}} -->
     <!-- <button @click="add">add 1</button>
     <button @click="asyncAdd">async add</button>-->
-    <Button>click me</Button>
-    <ShoppingMall />
+    <!-- <Button>click me</Button>
+    <ShoppingMall />-->
   </div>
 </template>
 
 <script>
 import debounce from 'lodash/debounce';
-import ShoppingMall from '@/pages/ShoppingMall';
-import { Button } from 'ant-design-vue';
-import InstructionDemo from './basic/instructionDemo/index';
+// import ShoppingMall from '@/pages/ShoppingMall';
+// import { Button } from 'ant-design-vue';
+// import InstructionDemo from './basic/instructionDemo/index';
 // import ProvideInject from './basic/provideInject';
 
 export default {
   name: 'app',
   components: {
-    InstructionDemo,
+    // InstructionDemo,
     // ProvideInject,
-    ShoppingMall,
-    Button,
+    // ShoppingMall,
+    // Button,
   },
   data: () => ({
     phoneInfo: {
