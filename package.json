@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.6.5",
+    "async-validator": "^3.5.1",
     "core-js": "^2.6.5",
     "lodash": "^4.17.20",
     "moment": "^2.27.0",
