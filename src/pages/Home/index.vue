@@ -38,8 +38,14 @@ export default {
     };
   },
   methods: {
-    submitForm(e) {
-      console.log('e :>> ', e);
+    submitForm(form) {
+      this.$refs[form].validate((valid) => {
+        if (valid) {
+          alert('请求登录');
+        } else {
+          alert('登录失败');
+        }
+      });
     },
   },
 };

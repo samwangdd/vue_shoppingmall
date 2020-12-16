@@ -17,8 +17,17 @@ export default {
       type: Object,
       required: true,
     },
-    rules: {
-      type: Object,
+    rules: Object,
+  },
+  methods: {
+    async validate(cb) {
+      const tasks = this.$children.filter((item) => item.prop).map((item) => item.validate());
+      const results = await Promise.all(tasks);
+      if (results.some((valid) => !valid)) {
+        cb(false);
+      } else {
+        cb(true);
+      }
     },
   },
 };
