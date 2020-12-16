@@ -2,7 +2,7 @@
   <div class="do-form-item">
     <label v-if="label">{{label}}：</label>
     <slot></slot>
-    <p v-if="message" class="iserror">{{message}}</p>
+    <p v-if="errorMessage" class="iserror">{{errorMessage}}</p>
   </div>
 </template>
 
@@ -35,14 +35,18 @@ export default {
   },
   methods: {
     validate() {
-      const descriptor = { [this.prop]: this.form.rules[this.prop] };
-      const validator = new Schema(descriptor);
-      validator.validate({ [this.prop]: this.form.model[this.prop] }, (errors) => {
-        if (errors) {
-          this.errorMessage = errors[0].message;
-        } else {
-          this.errorMessage = '';
-        }
+      return new Promise((resolve) => {
+        const descriptor = { [this.prop]: this.form.rules[this.prop] };
+        const validator = new Schema(descriptor);
+        validator.validate({ [this.prop]: this.form.model[this.prop] }, (errors) => {
+          if (errors) {
+            this.errorMessage = errors[0].message;
+            resolve(false);
+          } else {
+            this.errorMessage = '';
+            resolve(true);
+          }
+        });
       });
     },
   },
