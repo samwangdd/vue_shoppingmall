@@ -1,94 +1,52 @@
 <template>
   <div id="app" :class="{active: isActive }">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <!-- <HelloWorld msg='<span style="color: red">hhh</span>'/> -->
-    <!-- <TodoItem>
-      <span slot="suf">suf-icon</span>
-      <template #suf="{list}">
-        <span :class="[activeClass, errorClass]">suf-icon, {{list}}</span>
-      </template>
-    </TodoItem>-->
-    <!-- <ModelItem v-model="phoneInfo" :zip-code.sync="zipCode" />
-    <ModelItem
-      :phone-info="phoneInfo"
-      @change="val => (phoneInfo=val)"
-      :zip-code="zipCode"
-      @update:zipCode="val => (zipCode = val)"
-    />-->
-    <!-- <WatchItem /> -->
-    <!-- <Clock /> -->
-    <!-- <VNodes :vnodes="getJSXSpan()" /> -->
-    <!-- <InjectItem /> -->
-    <!-- <Proxy /> -->
-    <!-- <FormDemo /> -->
-    <InstructionDemo />
-    <ProvideInject />
+    <router-view />
+    <!-- <InstructionDemo /> -->
+    <!-- {{$store.getters.doubleCount}} -->
+    <!-- <button @click="add">add 1</button>
+    <!-- <Button>click me</Button>
+    <ShoppingMall />-->
   </div>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
-// import "./components/n.js";
-// import event from "./components/event";
-import debounce from "lodash/debounce";
-
-// import TodoItem from "./components/TodoItem";
-// import ModelItem from "./components/ModelItem";
-// import WatchItem from "./components/WatchItem";
-// import Clock from "./components/Clock";
-// import InjectItem from "./components/InjectItem";
-// import Proxy from "./basic/proxy/index";
-// import FormDemo from "./basic/formDemo/index";
-import InstructionDemo from "./basic/instructionDemo/index";
-import ProvideInject from "./basic/provideInject";
+import debounce from 'lodash/debounce';
+// import ShoppingMall from '@/pages/ShoppingMall';
+// import { Button } from 'ant-design-vue';
+// import InstructionDemo from './basic/instructionDemo/index';
+// import ProvideInject from './basic/provideInject';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
-    // HelloWorld,
-    // event,
-    // TodoItem,
-    // FormDemo,
-    // ModelItem,
-    // WatchItem,
-    // Clock,
-    // InjectItem,
-    // Proxy,
-    // VNodes: {
-    //   functional: true,
-    //   render: (h, ctx) => {
-    //     console.log("h :>> ", h);
-    //     console.log("ctx :>> ", ctx);
-
-    //     return ctx.props.vnodes;
-    //   },
-    // },
-    InstructionDemo,
-    ProvideInject
+    // InstructionDemo,
+    // ProvideInject,
+    // ShoppingMall,
+    // Button,
   },
   data: () => ({
     phoneInfo: {
-      phone: "",
+      phone: '',
     },
-    zipCode: "",
-    firstName: "sam",
-    lastName: "wang",
+    zipCode: '',
+    firstName: 'sam',
+    lastName: 'wang',
     isActive: true,
-    activeClass: "import-info",
-    errorClass: "text-danger",
-    color: "blue",
+    activeClass: 'import-info',
+    errorClass: 'text-danger',
+    color: 'blue',
   }),
   watch: {
     zipCode: function () {
-      // console.log("next :>> ", next);
-      // console.log("pre :>> ", pre);
       this.debouncedGetFullName();
     },
   },
   computed: {
     fullName: function () {
-      // console.log("this.firstName :>> ", this.firstName);
       return `${this.firstName} ${this.lastName}`;
+    },
+    count() {
+      return this.$store.state.count;
     },
   },
   methods: {
@@ -102,13 +60,18 @@ export default {
     getJSXSpan() {
       return <span>message: {this.fullName}</span>;
     },
+    add() {
+      this.$store.commit('add', 2);
+    },
+    asyncAdd() {
+      this.$store.dispatch('asyncAdd', 6);
+    },
   },
-  // provide() {
-  //   return {
-  //     theme: this,
-  //   };
-  // },
-  // VUE 生命周期
+  provide() {
+    return {
+      theme: this,
+    };
+  },
   created: function () {
     this.debouncedGetFullName = debounce(this.getFullName, 2000);
   },
@@ -117,17 +80,11 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-.active {
-  /* background-color: blueviolet; */
-}
-.import-info {
-  /* color: #ff1; */
 }
 </style>

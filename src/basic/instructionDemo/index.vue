@@ -11,8 +11,8 @@
 /**
  * instruction 指令练习
  */
-import moment from "moment";
-import Spike from "./Spike"; // 倒计时秒杀组件
+import moment from 'moment';
+import Spike from './Spike'; // 倒计时秒杀组件
 // import ClockDirective from "./ClockDirective";
 
 export default {
@@ -21,8 +21,8 @@ export default {
     // ClockDirective,
   },
   data: () => ({
-    startTime: moment("2020-8-29 14:00:00"),
-    endTime: moment("2020-8-29 17:00:00"),
+    startTime: moment('2020-12-6 14:00:00'),
+    endTime: moment('2020-12-6 23:00:00'),
   }),
   methods: {
     reStart() {
