@@ -29,7 +29,7 @@
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
     "mathsass": "^0.11.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^10.0.2",
     "vue-template-compiler": "^2.5.21"
   },
